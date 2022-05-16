@@ -12,6 +12,9 @@
 .idea/**/dictionaries
 .idea/**/shelf
 
+# Run configurations
+.run/
+
 # AWS User-specific
 .idea/**/aws.xml
 
