@@ -46,22 +46,22 @@ public class CombatListener implements Listener {
 		}
 	}
 
-	@EventHandler(ignoreCancelled = true)
-	public void onInventoryOpen(InventoryOpenEvent e) {
-		final Player player = (Player) e.getPlayer();
-		if (plugin.getCombatTagManager().isTagged(player)) {
-			e.setCancelled(true);
-			player.sendMessage(plugin.getConfigMessage("you-can-not-open-inventory"));
-		}
-	}
+//	@EventHandler(ignoreCancelled = true)
+//	public void onInventoryOpen(InventoryOpenEvent e) {
+//		final Player player = (Player) e.getPlayer();
+//		if (plugin.getCombatTagManager().isTagged(player)) {
+//			e.setCancelled(true);
+//			player.sendMessage(plugin.getConfigMessage("you-can-not-open-inventory"));
+//		}
+//	}
 
-	@EventHandler(ignoreCancelled = true)
-	public void onInventoryOpen(PlayerTeleportEvent e) {
-		if (plugin.getCombatTagManager().isTagged(e.getPlayer())) {
-			e.setCancelled(true);
-			e.getPlayer().sendMessage(plugin.getConfigMessage("you-can-not-teleport"));
-		}
-	}
+//	@EventHandler(ignoreCancelled = true)
+//	public void onInventoryOpen(PlayerTeleportEvent e) {
+//		if (plugin.getCombatTagManager().isTagged(e.getPlayer())) {
+//			e.setCancelled(true);
+//			e.getPlayer().sendMessage(plugin.getConfigMessage("you-can-not-teleport"));
+//		}
+//	}
 
 	@EventHandler
 	public void onDeath(PlayerDeathEvent e) {
