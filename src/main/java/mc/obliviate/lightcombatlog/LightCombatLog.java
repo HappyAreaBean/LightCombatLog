@@ -1,5 +1,6 @@
 package mc.obliviate.lightcombatlog;
 
+import com.hakan.core.HCore;
 import mc.obliviate.lightcombatlog.listeners.CombatListener;
 import mc.obliviate.lightcombatlog.listeners.ReloadCMD;
 import mc.obliviate.lightcombatlog.tag.CombatTagManager;
@@ -30,6 +31,7 @@ public class LightCombatLog extends JavaPlugin {
 
 	private void loadListeners() {
 		Objects.requireNonNull(getCommand("lightcombatlog")).setExecutor(new ReloadCMD(this));
+		HCore.initialize(this);
 
 		final List<UUID> disabledWorlds = stringListToWorldUuidList(configuration.getStringList("disabled-worlds"));
 		Bukkit.getPluginManager().registerEvents(new CombatListener(disabledWorlds, this, configuration.getInt("tag-time", 5000)), this);
@@ -80,5 +82,9 @@ public class LightCombatLog extends JavaPlugin {
 		final String message = configuration.getString("messages." + key);
 		if (message == null || message.isEmpty()) return null;
 		return ChatColor.translateAlternateColorCodes('&', message);
+	}
+
+	public boolean isWorldGuardInstalled() {
+		return Bukkit.getPluginManager().isPluginEnabled("WorldGuard");
 	}
 }

@@ -15,6 +15,9 @@
 # Run configurations
 .run/
 
+.idea/
+libs/
+
 # AWS User-specific
 .idea/**/aws.xml
 

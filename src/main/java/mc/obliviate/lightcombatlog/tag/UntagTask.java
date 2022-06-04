@@ -30,7 +30,7 @@ public class UntagTask implements Runnable {
 				showRemainingTime(player , timeLeftMillis + 1000);
 				continue;
 			}
-			plugin.getCombatTagManager().untag(player );
+			plugin.getCombatTagManager().untag(player);
 		}
 	}
 

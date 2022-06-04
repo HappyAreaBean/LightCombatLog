@@ -3,6 +3,9 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
+sourceCompatibility = 8
+targetCompatibility = 8
+
 group 'mc.obliviate'
 version '0.0.1'
 
@@ -14,7 +17,8 @@ repositories {
 
 dependencies {
     compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
-    implementation 'com.github.hakan-krgn.hCore:bukkit-primary:0.1.5'
+    compileOnly fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.github.hakan-krgn.hCore:bukkit:0.2.8'
 }
 
 artifacts.archives(tasks.shadowJar)
